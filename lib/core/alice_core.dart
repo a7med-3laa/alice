@@ -230,7 +230,7 @@ class AliceCore {
       "Alice (total: ${callsSubject.value.length} requests)",
       message,
       platformChannelSpecifics,
-      payload: "",
+      payload: "Alice",
     );
     _notificationMessageShown = message;
     _notificationProcessing = false;
