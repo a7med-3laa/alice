@@ -51,9 +51,12 @@ class AliceCore {
   String? _notificationMessageShown;
   bool _notificationProcessing = false;
 
+  BuildContext? context;
+
   /// Creates alice core instance
   AliceCore(
-    this.navigatorKey, {
+    this.navigatorKey,
+    this.context, {
     required this.showNotification,
     required this.showInspectorOnShake,
     required this.darkTheme,
@@ -141,7 +144,8 @@ class AliceCore {
   }
 
   /// Get context from navigator key. Used to open inspector route.
-  BuildContext? getContext() => navigatorKey?.currentState?.overlay?.context;
+  BuildContext? getContext() =>
+      navigatorKey?.currentState?.overlay?.context ?? context;
 
   String _getNotificationMessage() {
     final List<AliceHttpCall> calls = callsSubject.value;

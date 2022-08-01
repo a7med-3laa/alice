@@ -44,6 +44,7 @@ class Alice {
   /// Creates alice instance.
   Alice({
     GlobalKey<NavigatorState>? navigatorKey,
+    BuildContext? context,
     this.showNotification = true,
     this.showInspectorOnShake = false,
     this.darkTheme = false,
@@ -55,6 +56,7 @@ class Alice {
     _navigatorKey = navigatorKey ?? GlobalKey<NavigatorState>();
     _aliceCore = AliceCore(
       _navigatorKey,
+      context,
       showNotification: showNotification,
       showInspectorOnShake: showInspectorOnShake,
       darkTheme: darkTheme,
