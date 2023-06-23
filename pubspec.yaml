@@ -11,17 +11,15 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.5
-  dio: ^5.1.1
-  flutter_local_notifications: ^14.0.0+1
-  rxdart: ^0.27.5
-  path_provider: ^2.0.11
-  permission_handler: ^10.2.0
-  package_info_plus: ^3.0.1
+  dio: ^5.2.1+1
+  flutter_local_notifications: ^14.1.1
+  rxdart: ^0.27.7
+  path_provider: ^2.0.15
+  permission_handler: ^10.3.0
+  package_info_plus: ^4.0.2
 #  open_file: ^3.2.2
-  sensors_plus: ^2.0.1
-  share_plus: ^6.2.0
-  better_player: 
-    git: https://github.com/a7med-3laa/betterplayer.git
+  sensors_plus: ^3.0.2
+  share_plus: ^7.0.2
   collection: ^1.17.0
   chopper: ^4.0.6
 
