@@ -1,11 +1,7 @@
-import 'dart:io';
-import 'package:alice/core/alice_http_adapter.dart';
 import 'package:alice/model/alice_http_call.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:alice/core/alice_core.dart';
 import 'package:alice/core/alice_dio_interceptor.dart';
-import 'package:alice/core/alice_http_client_adapter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -36,8 +32,6 @@ class Alice {
 
   GlobalKey<NavigatorState>? _navigatorKey;
   late AliceCore _aliceCore;
-  late AliceHttpClientAdapter _httpClientAdapter;
-  late AliceHttpAdapter _httpAdapter;
 
   /// Creates alice instance.
   Alice({
@@ -63,8 +57,7 @@ class Alice {
       directionality: directionality,
       showShareButton: showShareButton,
     );
-    _httpClientAdapter = AliceHttpClientAdapter(_aliceCore);
-    _httpAdapter = AliceHttpAdapter(_aliceCore);
+
   }
 
   /// Set custom navigation key. This will help if there's route library.
@@ -83,24 +76,6 @@ class Alice {
     return AliceDioInterceptor(_aliceCore);
   }
 
-  /// Handle request from HttpClient
-  void onHttpClientRequest(HttpClientRequest request, {dynamic body}) {
-    _httpClientAdapter.onRequest(request, body: body);
-  }
-
-  /// Handle response from HttpClient
-  void onHttpClientResponse(
-    HttpClientResponse response,
-    HttpClientRequest request, {
-    dynamic body,
-  }) {
-    _httpClientAdapter.onResponse(response, request, body: body);
-  }
-
-  /// Handle both request and response from http package
-  void onHttpResponse(http.Response response, {dynamic body}) {
-    _httpAdapter.onResponse(response, body: body);
-  }
 
   /// Opens Http calls inspector. This will navigate user to the new fullscreen
   /// page where all listened http calls can be viewed.
