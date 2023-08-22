@@ -121,7 +121,6 @@ class AliceSaveHelper {
 
   static String _buildCallLog(AliceHttpCall call) {
     final StringBuffer stringBuffer = StringBuffer();
-    stringBuffer.write("===========================================\n");
     stringBuffer.write("Id: ${call.id}\n");
     stringBuffer.write("============================================\n");
     stringBuffer.write("--------------------------------------------\n");
@@ -130,7 +129,6 @@ class AliceSaveHelper {
     stringBuffer.write("Server: ${call.server} \n");
     stringBuffer.write("Method: ${call.method} \n");
     stringBuffer.write("Endpoint: ${call.endpoint} \n");
-    stringBuffer.write("Client: ${call.client} \n");
     stringBuffer
         .write("Duration ${AliceConversionHelper.formatTime(call.duration)}\n");
     stringBuffer.write("Secured connection: ${call.secure}\n");
