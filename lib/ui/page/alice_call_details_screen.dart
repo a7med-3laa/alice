@@ -47,7 +47,7 @@ class _AliceCallDetailsScreenState extends State<AliceCallDetailsScreen>
                 (snapshotCall) => snapshotCall.id == widget.call.id,
               );
               if (call != null) {
-                return _buildMainWidget();
+                return _buildMainWidget(context);
               } else {
                 return _buildErrorWidget();
               }
@@ -60,7 +60,7 @@ class _AliceCallDetailsScreenState extends State<AliceCallDetailsScreen>
     );
   }
 
-  Widget _buildMainWidget() {
+  Widget _buildMainWidget(BuildContext context) {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
