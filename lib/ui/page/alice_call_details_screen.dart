@@ -69,13 +69,13 @@ class _AliceCallDetailsScreenState extends State<AliceCallDetailsScreen>
                 backgroundColor: AliceConstants.lightRed,
                 key: const Key('share_key'),
                 onPressed: () async {
-                  SharePlus.instance.share(
-                    ShareParams(
-                     text:  await _getSharableResponseString(),
-                      subject: 'Request Details',
-                    )
+                  final box = context.findRenderObject() as RenderBox?;
 
-                  );
+                  SharePlus.instance.share(ShareParams(
+                      text: await _getSharableResponseString(),
+                      subject: 'Request Details',
+                      sharePositionOrigin:
+                          box!.localToGlobal(Offset.zero) & box.size));
                 },
                 child: Icon(
                   Icons.share,
