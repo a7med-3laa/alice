@@ -100,7 +100,7 @@ class AliceCore {
       iOS: initializationSettingsIOS,
     );
     _flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
+      settings: initializationSettings,
       onDidReceiveNotificationResponse: _onSelectedNotification,
     );
   }
@@ -230,10 +230,10 @@ class AliceCore {
     );
     final String? message = _notificationMessage;
     await _flutterLocalNotificationsPlugin.show(
-      0,
-      "Alice (total: ${callsSubject.value.length} requests)",
-      message,
-      platformChannelSpecifics,
+      id: 0,
+      title: "Alice (total: ${callsSubject.value.length} requests)",
+      body: message,
+      notificationDetails: platformChannelSpecifics,
       payload: "Alice",
     );
     _notificationMessageShown = message;
